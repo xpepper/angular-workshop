@@ -3,6 +3,6 @@
 /* Controllers */
 
 angular.module('myApp.controllers', [])
-  .controller('TestCtrl1', ['$scope', function($scope) {
+  .controller('HomeCtrl1', ['$scope', function($scope) {
 
   }]);
