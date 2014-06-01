@@ -28,7 +28,7 @@
 	    </div>
 		</div>
 		
-		<div ng-repeat="news in results | orderBy:newsOrder:newsOrderReverse" class="row">
+		<div ng-repeat="news in results | orderBy:newsOrder:newsOrderReverse" class="row animate">
 		  <div class="col-md-12">
 		    <h3>{{ news.title }}</h3>
 		    <p ng-bind-html="news.summary | emphasize:searchKey"></p>
