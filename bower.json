@@ -12,6 +12,7 @@
     "angular-sanitize": "1.2.x",
     "angular-animate": "1.2.x",
     "angular-mocks": "~1.2.x",
+    "crypto-js": "http://crypto-js.googlecode.com/files/CryptoJS%20v3.1.2.zip",
     "html5-boilerplate": "~4.3.0",
     "bootstrap": "~3.1.1"
   }

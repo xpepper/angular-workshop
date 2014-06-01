@@ -6,8 +6,8 @@
 // Demonstrate how to register services
 // In this case it is a simple value service.
 angular.module('myApp.services', []).
-  value('version', 'step2')
-  .factory('User', [function() {
+  value('version', 'step3')
+  .factory('User', ['$http', function($http) {
 	 
 	  var user = {
 			  "username": "",
@@ -17,6 +17,9 @@ angular.module('myApp.services', []).
 	  user.setCredentials = function(username, password) {
 		user.username = username;
 		user.password = password;
+	    var hash64 = CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(user.username + ":" + user.password));
+		$http.defaults.headers.common.Authorization = 'Basic ' + hash64;
+		
 	  };
 	  
 	  user.getUsername = function() {

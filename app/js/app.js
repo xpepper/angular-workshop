@@ -12,6 +12,7 @@ angular.module('myApp', [
   'myApp.controllers'
 ]).
 config(['$routeProvider', function($routeProvider) {
+	
   
 	
 	$routeProvider.when('/home', {templateUrl: 'partials/home.html', controller: 'HomeCtrl1'});
