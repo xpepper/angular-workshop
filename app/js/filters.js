@@ -7,4 +7,9 @@ angular.module('myApp.filters', []).
     return function(text) {
       return String(text).replace(/\%VERSION\%/mg, version);
     };
-  }]);
+  }])
+  .filter('emphasize', function() {
+	return function(text, search) {
+		return text.replace(search, "<span class='label label-info'>" + search + "</span>");
+	};  
+  });
