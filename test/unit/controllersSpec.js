@@ -7,7 +7,7 @@ describe('controllers', function(){
 
   it('should ....', inject(function($controller) {
     //spec body
-    var testCtrl = $controller('TestCtrl1', { $scope: {} });
+    var testCtrl = $controller('HomeCtrl1', { $scope: {} });
     expect(testCtrl).toBeDefined();
   }));
   
