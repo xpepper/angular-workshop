@@ -34,7 +34,7 @@ Se l'ambiente è correttamente configurato, un messaggio di conferma verrà visu
 In caso contrario contattare gli organizzatori del corso. Il corretto settaggio dell'ambiente è fondamentale per seguire attivamente il corso.
 
 ### FAQ e dipendenze
-Il sistema richiede l'installazione di Git e nodejs sulla propria macchina. Per utenti windows si consiglia di lanciare Git Bash con permessi di amministratore (tasto destro e click su "esegui come amministratore") e se ci sono problematiche durante l'installazione re-installare nodejs scaricando l'ultimo installare per windows dal sito ufficiale nodejs.org. Si sconsiglia di installare il pacchetto da connessioni proxate.
+Il sistema richiede l'installazione di Git ([git]) e Nodejs([node]) sulla propria macchina. Per utenti windows si consiglia di lanciare Git Bash con permessi di amministratore (tasto destro e click su "esegui come amministratore") e se ci sono problematiche durante l'installazione re-installare nodejs scaricando l'ultimo installare per windows dal sito ufficiale nodejs.org. Si sconsiglia di installare il pacchetto da connessioni proxate.
 
 [git]: http://git-scm.com/
 [bower]: http://bower.io
