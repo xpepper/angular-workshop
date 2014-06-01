@@ -1,10 +1,15 @@
-# angular-workshop — AngularJS Workshop App
+# angular-corso — AngularJS Workshop App extended
 
 Clonare git repo:
 
 ```
-git clone https://bitbucket.org/corley/angular-workshop.git
-cd angular-workshop
+git clone https://bitbucket.org/corley/angular-corso.git
+```
+
+Entrare nella cartella creata:
+```
+cd angular-corso
+
 ```
 
 ### Installare le dipendenze
@@ -26,8 +31,10 @@ npm start
 Quindi aprire il browser e navigare `http://localhost:8000/app/index.html`.
 Se l'ambiente è correttamente configurato, un messaggio di conferma verrà visualizzato.
 
-In caso contrario contattare gli organizzatori del corso. Il corretto settaggio dell'ambiente è requisito fondamentale per accedere al corso.
+In caso contrario contattare gli organizzatori del corso. Il corretto settaggio dell'ambiente è fondamentale per seguire attivamente il corso.
 
+### FAQ e dipendenze
+Il sistema richiede l'installazione di Git e nodejs sulla propria macchina. Per utenti windows si consiglia di lanciare Git Bash con permessi di amministratore (tasto destro e click su "esegui come amministratore") e se ci sono problematiche durante l'installazione re-installare nodejs scaricando l'ultimo installare per windows dal sito ufficiale nodejs.org. Si sconsiglia di installare il pacchetto da connessioni proxate.
 
 [git]: http://git-scm.com/
 [bower]: http://bower.io
