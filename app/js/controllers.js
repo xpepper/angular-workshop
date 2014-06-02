@@ -34,6 +34,10 @@ angular.module('myApp.controllers', [])
 	  };
 	  
   }])
+  .controller('LogoutCtrl', ['$scope', '$location', 'User', function($scope, $location, User){
+	  User.voidCredentials();
+	  $location.path("/");
+  }])
   .controller('PublishCtrl', ['$scope', '$location', '$http', 'User', function($scope, $location, $http, User){
 
 	  if(!User.isConnected()) {
