@@ -52,6 +52,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     apt-add-repository -y ppa:chris-lea/node.js
     add-apt-repository -y ppa:git-core/ppa
     apt-get update -y --fix-missing
-    apt-get install -y git nodejs
+    apt-get install -y git nodejs curl vim wget
   EOF
 end
