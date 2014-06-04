@@ -13,7 +13,7 @@ angular.module('myApp.controllers', [])
 	  };
 	  
 	  $scope.search = function(searchKey) {
-		  $http.get("http://restendpoint/search/" + searchKey).success(function(data){
+		  $http.get("http://rest.test.croley.it/search/" + searchKey).success(function(data){
 			  $scope.results = data;
 		  });
 	  };
@@ -23,7 +23,7 @@ angular.module('myApp.controllers', [])
 	  
 	  $scope.login = function(credentials) {
 		  $scope.loginError = false;
-		  $http.post("http://restendpoint/login", credentials).success(function() {
+		  $http.post("http://rest.test.croley.it/login", credentials).success(function() {
 			  User.setCredentials(credentials.username, credentials.password);
 			  $location.path("/publish");
 		  })
@@ -41,7 +41,7 @@ angular.module('myApp.controllers', [])
 	  }
 	  
 	  $scope.publish = function(news) {
-		  $http.post("http://restendpoint/news", news).success(function(data) {
+		  $http.post("http://rest.test.croley.it/news", news).success(function(data) {
 			  $scope.newsPublished = "News " + data.id + " published!";
 			  $scope.news = {};
 		  });
