@@ -1,8 +1,44 @@
 <div class="jumbotron">
     <h2>News search engine</h2>
-    <form role="form">
+    <form ng-submit="search(searchKey)" role="form">
       <div class="form-group">
-		    <input type="text" class="form-control input-lg" placeholder="Type something...">
-		  </div>
+        <input ng-model="searchKey" type="text" class="form-control input-lg" placeholder="Type something...">
+      </div>
+      <div class="form-group text-center">
+        <button type="submit" class="btn btn-info">Search news</button>
+        <span ng-show="results" ng-click="emptyResults()" class="btn btn-link">void results</span>
+      </div>
+
     </form>
+</div>
+
+<div ng-show="results.length > 0" class="row">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Results for {{searchKey}}</h2>
+      </div>
+      <div class="col-md-4">
+        <select ng-model="newsOrder">
+          <option value="title">Order by title
+          <option value="timestamp">Order by timestamp
+        </select>
+      </div>
+    </div>
+
+    <div ng-repeat="news in results | orderBy:newsOrder" class="row">
+      <div class="col-md-12">
+        <h3>{{news.title | uppercase }}</h3>
+        <p>{{news.summary}}</p>
+        <p>Published on {{news.timestamp | date: 'fullDate'}}</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div ng-hide="searchKey" class="row">
+  <div class="col-md-12">
+    <h2>type something in the form above c'mon!</h2>
+  </div>
 </div>
