@@ -7,10 +7,15 @@ angular.module('myApp.controllers', [])
     $scope.login = function(credentials) {
       User.setCredentials(credentials);
       $location.path("/publish");
-    }
+    };
   }])
-  .controller('PublishCtrl', ['$scope', function($scope) {
-
+  .controller('PublishCtrl', ['$scope', '$location', 'User', function($scope, $location, User) {
+      if (User.isLogged()) {
+        console.log("User logged: " + User.getUsername());
+      } else {
+        console.log("Unauthorized access!");
+        $location.path("/login");
+      }
   }])
   .controller('HomeCtrl1', ['$scope', function($scope) {
       $scope.results = [];

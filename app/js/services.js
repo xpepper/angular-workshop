@@ -22,6 +22,10 @@ angular.module('myApp.services', []).
       user.username = user.password = "";
     };
 
+    user.getUsername = function() {
+      return user.username;
+    };
+    
     user.isLogged = function() {
       return user.username;
     };
