@@ -15,7 +15,11 @@ angular.module('myApp.controllers', [])
       } else {
         console.log("Unauthorized access!");
         $location.path("/login");
-      }
+      };
+
+      $scope.addNews = function(news) {
+        console.log(news);
+      };
   }])
   .controller('HomeCtrl1', ['$scope', function($scope) {
       $scope.results = [];

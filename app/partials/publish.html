@@ -1,0 +1,15 @@
+<div class="jumbotron">
+    <h2>Add here a news</h2>
+    <form ng-submit="addNews(news)" role="form">
+      <div class="form-group">
+        <input ng-model="news.title" type="text" class="form-control input-lg" placeholder="A title...">
+      </div>
+      <div class="form-group">
+        <input ng-model="news.summary" type="textarea" class="form-control input-lg" placeholder="A summary...">
+      </div>
+
+      <div class="form-group text-center">
+        <button type="submit" class="btn btn-info">Add news</button>
+      </div>
+    </form>
+</div>
