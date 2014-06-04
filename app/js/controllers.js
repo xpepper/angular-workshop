@@ -7,6 +7,7 @@ angular.module('myApp.controllers', [])
       $scope.results = [];
       $scope.searchKey = "";
       $scope.newsOrder = "title";
+      $scope.reverse = "false";
 
       $scope.search = function(term) {
         $scope.results = [{
@@ -39,6 +40,13 @@ angular.module('myApp.controllers', [])
       $scope.emptyResults = function() {
         $scope.results = [];
         $scope.searchKey = "";
+      };
+
+      $scope.pushNews = function(news) {
+        $scope.results.push({
+          "title": "Nova notitia",
+          "summary": "Hic sunt leones.",
+          "timestamp": 1401010511000})
       };
 
   }]);

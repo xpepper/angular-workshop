@@ -24,18 +24,26 @@
           <option value="timestamp">Order by timestamp
         </select>
       </div>
+      <div class="col-md-2">
+        <select ng-model="reverse">
+          <option value="true">Reverse
+          <option value="false">Original
+        </select>
+      </div>
     </div>
 
-    <div ng-repeat="news in results | orderBy:newsOrder" class="row">
+    <div ng-repeat="news in results | orderBy:newsOrder:reverse" class="row">
       <div class="col-md-12">
         <h3>{{news.title | uppercase }}</h3>
-        <p>{{news.summary}}</p>
+        <p ng-bind-html="news.summary | emphasize:searchKey"></p>
         <p>Published on {{news.timestamp | date: 'fullDate'}}</p>
       </div>
     </div>
 
   </div>
 </div>
+
+<span ng-click="pushNews()" class="btn btn-link">Gimme one more news!</span>
 
 <div ng-hide="searchKey" class="row">
   <div class="col-md-12">
