@@ -3,9 +3,10 @@
 /* Controllers */
 
 angular.module('myApp.controllers', [])
-  .controller('LoginCtrl', ['$scope', function($scope) {
+  .controller('LoginCtrl', ['$scope', '$location', 'User', function($scope, $location, User) {
     $scope.login = function(credentials) {
-      console.log(credentials);
+      User.setCredentials(credentials);
+      $location.path("/publish");
     }
   }])
   .controller('PublishCtrl', ['$scope', function($scope) {
