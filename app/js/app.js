@@ -11,5 +11,7 @@ angular.module('myApp', [
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/home', {templateUrl: 'partials/home.html', controller: 'HomeCtrl1'});
+  $routeProvider.when('/login', {templateUrl: 'partials/login.html', controller: 'LoginCtrl'});
+  $routeProvider.when('/publish', {templateUrl: 'partials/publish.html', controller: 'PublishCtrl'});
   $routeProvider.otherwise({redirectTo: '/home'});
 }]);
