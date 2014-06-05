@@ -4,14 +4,14 @@
 
 angular.module('myApp.controllers', [])
   .controller('HomeCtrl1', ['$scope', '$http', function($scope, $http) {
-	  
+
 	  $scope.results = [];
 	  $scope.newsOrder = "title";
-	  
+
 	  $scope.erase = function() {
-		  $scope.results = [];  
+		  $scope.results = [];
 	  };
-	  
+
 	  $scope.search = function(searchKey) {
 		  $http.get("http://rest.test.corley.it/search/" + searchKey).success(function(data){
 			  $scope.results = data;
@@ -20,7 +20,7 @@ angular.module('myApp.controllers', [])
 
   }])
   .controller('LoginCtrl', ['$scope', '$location', '$http', 'User', function($scope, $location, $http, User){
-	  
+
 	  $scope.login = function(credentials) {
 		  $scope.loginError = false;
 		  $http.post("http://rest.test.corley.it/login", credentials).success(function() {
@@ -32,7 +32,7 @@ angular.module('myApp.controllers', [])
 		  });
 		  //do something
 	  };
-	  
+
   }])
   .controller('LogoutCtrl', ['$scope', '$location', 'User', function($scope, $location, User){
 	  User.voidCredentials();
@@ -43,13 +43,14 @@ angular.module('myApp.controllers', [])
 	  if(!User.isConnected()) {
 		  $location.path("/login");
 	  }
-	  
+
 	  $scope.publish = function(news) {
 		  $http.post("http://rest.test.corley.it/news", news).success(function(data) {
 			  $scope.newsPublished = "News " + data.id + " published!";
 			  $scope.news = {};
+        $scope.newsAdded = data;
 		  });
 	  }
-	  
+
   }])
   ;

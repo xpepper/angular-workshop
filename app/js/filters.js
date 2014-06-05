@@ -10,6 +10,11 @@ angular.module('myApp.filters', []).
   }])
   .filter('emphasize', function() {
 	return function(text, search) {
-		return text.replace(search, "<span class='label label-info'>" + search + "</span>");
-	};  
+    if (!text){
+      text = "";
+    }
+    else {
+		    return text.replace(search, "<span class='label label-info'>" + search + "</span>");
+      }
+	};
   });
