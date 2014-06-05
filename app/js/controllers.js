@@ -3,7 +3,7 @@
 /* Controllers */
 
 angular.module('myApp.controllers', [])
-  .controller('HomeCtrl1', ['$scope', function($scope) {
+  .controller('HomeController', ['$scope', function($scope) {
 	  
 	  $scope.results = [];
 	  $scope.newsOrder = "title";
