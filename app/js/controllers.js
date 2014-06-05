@@ -3,8 +3,9 @@
 /* Controllers */
 
 angular.module('myApp.controllers', [])
-  .controller('LogoutController', ['$scope', '$http', 'User', function($scope, $http, User) {
+  .controller('LogoutController', ['$scope', '$http', '$location', 'User', function($scope, $http, $location, User) {
     User.voidCredentials();
+    $location.path("/home");
   }])
   .controller('HomeCtrl1', ['$scope', '$http', function($scope, $http) {
 

@@ -16,6 +16,6 @@ config(['$routeProvider', function($routeProvider) {
 	$routeProvider.when('/home', {templateUrl: 'partials/home.html', controller: 'HomeCtrl1'});
 	$routeProvider.when('/publish', {templateUrl: 'partials/publish.html', controller: 'PublishCtrl'});
 	$routeProvider.when('/login', {templateUrl: 'partials/login.html', controller: 'LoginCtrl'});
-	$routeProvider.when('/logout', {templateUrl: '', controller: 'LogoutController'});
+	$routeProvider.when('/logout', {template: '', controller: 'LogoutController'});
 	$routeProvider.otherwise({redirectTo: '/home'});
 }]);

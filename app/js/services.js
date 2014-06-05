@@ -7,7 +7,7 @@
 // In this case it is a simple value service.
 angular.module('myApp.services', []).
   value('version', 'step3')
-  .factory('User', ['$http', function($http) {
+  .factory('User', ['$http', '$cookieStore', function($http, $cookieStore) {
 
 	  var user = {
 			  "username": "",
@@ -18,6 +18,7 @@ angular.module('myApp.services', []).
       user.username = "";
       user.password = "";
       delete $http.defaults.headers.common.Authorization;
+      $cookieStore.remove("credentials");
     };
 
 	  user.setCredentials = function(username, password) {
@@ -25,7 +26,7 @@ angular.module('myApp.services', []).
   		user.password = password;
 	    var hash64 = CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(user.username + ":" + user.password));
   		$http.defaults.headers.common.Authorization = 'Basic ' + hash64;
-
+      $cookieStore.put("credentials", { "username": user.username, "password": user.password });
 	  };
 
 	  user.getUsername = function() {
@@ -37,7 +38,7 @@ angular.module('myApp.services', []).
 	  };
 
 	  user.isConnected = function() {
-		  if(user.username) {
+		  if (user.username) {
 			  return true;
 		  }
 		  else {
@@ -45,6 +46,10 @@ angular.module('myApp.services', []).
 		  }
 	  }
 
-	  return user;
+    if ($cookieStore.get("credentials")) {
+      var credentials = $cookieStore.get("credentials");
+      user.setCredentials(credentials.username, credentials.password);
+    }
 
+	  return user;
   }]);
