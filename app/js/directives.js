@@ -4,11 +4,14 @@
 
 
 angular.module('myApp.directives', [])
-  .directive('myHeader', [function(version) {
+  .directive('myHeader', ['$location', function($location) {
     return {
       restrict: "EA",
       replace: true,
-      templateUrl: "partials/my-header.html"
+      templateUrl: "partials/my-header.html",
+      link: function(scope, element, attributes) {
+        scope.currentPath = $location.path();
+      }
     };
   }])
   .directive('appVersion', ['version', function(version) {
