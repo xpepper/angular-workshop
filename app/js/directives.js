@@ -10,7 +10,14 @@ angular.module('myApp.directives', [])
       replace: true,
       templateUrl: "partials/my-header.html",
       link: function(scope, element, attributes) {
-        scope.currentPath = $location.path();
+        scope.$watch(
+          function() {
+            return $location.path();
+          },
+          function(newPath) {
+            scope.currentPath = newPath;
+          }
+        );
       }
     };
   }])
