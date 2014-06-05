@@ -3,13 +3,13 @@
 /* Controllers */
 
 angular.module('myApp.controllers', [])
-  .controller('LoginCtrl', ['$scope', '$location', 'User', function($scope, $location, User) {
+  .controller('LoginController', ['$scope', '$location', 'User', function($scope, $location, User) {
     $scope.login = function(credentials) {
       User.setCredentials(credentials);
       $location.path("/publish");
     };
   }])
-  .controller('PublishCtrl', ['$scope', '$location', 'User', function($scope, $location, User) {
+  .controller('PublishController', ['$scope', '$location', 'User', function($scope, $location, User) {
       if (User.isLogged()) {
         console.log("User logged: " + User.getUsername());
       } else {
@@ -21,7 +21,7 @@ angular.module('myApp.controllers', [])
         console.log(news);
       };
   }])
-  .controller('HomeCtrl1', ['$scope', function($scope) {
+  .controller('HomeController', ['$scope', function($scope) {
       $scope.results = [];
       $scope.searchKey = "";
       $scope.newsOrder = "title";
