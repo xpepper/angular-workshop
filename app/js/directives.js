@@ -4,7 +4,7 @@
 
 
 angular.module('myApp.directives', [])
-  .directive('myHeader', ['$location', function($location) {
+  .directive('myHeader', ['$location', 'User', function($location, User) {
     return {
       restrict: "EA",
       replace: true,
@@ -16,6 +16,15 @@ angular.module('myApp.directives', [])
           },
           function(newPath) {
             scope.currentPath = newPath;
+          }
+        );
+
+        scope.$watch(
+          function() {
+            return User.isConnected();
+          },
+          function(newStatus) {
+            scope.userLogged = newStatus;
           }
         );
       }
