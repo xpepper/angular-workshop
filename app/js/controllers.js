@@ -29,6 +29,7 @@ angular.module('myApp.controllers', [])
 	  };
 
 	  $scope.search = function(searchKey) {
+
 		  $http.get("http://rest.test.corley.it/search/" + searchKey).success(function(data){
 			  $scope.results = data;
 		  });
