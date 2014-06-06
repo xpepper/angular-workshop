@@ -8,6 +8,15 @@ angular.module('myApp.filters', []).
       return String(text).replace(/\%VERSION\%/mg, version);
     };
   }])
+  .filter('paginate', [function() {
+    return function(results, page) {
+      var size = 3;
+      if (!page) {
+        page = 0;
+      }
+      return results.slice(page * size, page * size + size);
+    };
+  }])
   .filter('emphasize', function() {
 	return function(text, search) {
     if (!text){

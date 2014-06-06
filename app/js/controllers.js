@@ -54,11 +54,17 @@ angular.module('myApp.controllers', [])
 	  User.voidCredentials();
 	  $location.path("/");
   }])
-  .controller('PublishCtrl', ['$scope', '$location', '$http', 'User', function($scope, $location, $http, User){
+  .controller('NewsController', ['$scope', '$location', '$http', 'User', function($scope, $location, $http, User){
 
-	  if(!User.isConnected()) {
+	  if (!User.isConnected()) {
 		  $location.path("/login");
 	  }
+
+    $scope.page = 0;
+    $scope.results = [];
+    $http.get("http://rest.test.corley.it/news").success(function(data){
+      $scope.results = data;
+    });
 
     $scope.forceDate = function(news) {
       if (news)
