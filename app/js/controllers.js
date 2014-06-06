@@ -3,6 +3,22 @@
 /* Controllers */
 
 angular.module('myApp.controllers', [])
+  .controller('ContactController', ['$scope', 'User', function($scope, User) {
+    $scope.question = {
+      username : User.getUsername(),
+      text : ""
+    }
+
+    $scope.sendQuestion = function(question) {
+      console.log("Sending user question...");
+      console.log(question);
+    };
+
+    $scope.canSendRequest = function(question) {
+      return question.text.length >= 50 && question.timestamp && question.username;
+    };
+
+  }])
   .controller('HomeCtrl1', ['$scope', '$http', function($scope, $http) {
 
 	  $scope.results = [];
