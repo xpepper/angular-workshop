@@ -4,6 +4,28 @@
 
 
 angular.module('myApp.directives', [])
+  .directive('myDatepicker', [function() {
+    return {
+      restrict: "A",
+      replace: false,
+      require: "ngModel",
+      scope: {
+        "date": "=ngModel"
+      },
+      link: function(scope, element, attibutes) {
+        $(element).datepicker({
+          format: "mm/dd/yyyy"
+        }).on('changeDate', function(e) {
+          return scope.$apply(function() {
+            return scope.date = e.format();
+          });
+        });
+        scope.$watch('date', function(changed){
+          $(element).datepicker('update', changed);
+        });
+      }
+    }
+  }])
   .directive('myHeader', ['$location', 'User', function($location, User) {
     return {
       restrict: "EA",

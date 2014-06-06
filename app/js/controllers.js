@@ -44,8 +44,19 @@ angular.module('myApp.controllers', [])
 		  $location.path("/login");
 	  }
 
+    $scope.forceDate = function(news) {
+      if (news)
+        news.timestamp = "23/08/2014";
+    }
+
 	  $scope.publish = function(news) {
-		  $http.post("http://rest.test.corley.it/news", news).success(function(data) {
+      var clonedNews = {
+        title: news.title,
+        summary: news.summary,
+        timestamp: new Date(news.timestamp).getTime()
+      }
+
+		  $http.post("http://rest.test.corley.it/news", clonedNews).success(function(data) {
 			  $scope.newsPublished = "News " + data.id + " published!";
 			  $scope.news = {};
         $scope.newsAdded = data;
