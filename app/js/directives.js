@@ -63,7 +63,8 @@ angular.module('myApp.directives', [])
       restrict: "EA",
       scope: {
         news: "=",
-        term: "@"
+        term: "@",
+        index: "@"
       },
       templateUrl: "partials/my-news.html"
     };

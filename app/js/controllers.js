@@ -60,7 +60,7 @@ angular.module('myApp.controllers', [])
 		  $location.path("/login");
 	  }
 
-    $scope.page = 0;
+    $scope.page = 1;
     $scope.results = [];
     $http.get("http://rest.test.corley.it/news").success(function(data){
       $scope.results = data;

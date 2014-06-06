@@ -9,12 +9,14 @@ angular.module('myApp.filters', []).
     };
   }])
   .filter('paginate', [function() {
-    return function(results, page) {
-      var size = 3;
-      if (!page) {
-        page = 0;
+    return function(results, page, size) {
+      if (!size || size < 1) {
+        size = 1;
       }
-      return results.slice(page * size, page * size + size);
+      if (!page || page < 1) {
+        page = 1;
+      }
+      return results.slice((page-1) * size, (page-1) * size + size);
     };
   }])
   .filter('emphasize', function() {

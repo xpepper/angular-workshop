@@ -2,5 +2,9 @@
   <div class="col-md-4 text-right">
     <input type="text" ng-model="page" class="form-control input-lg" placeholder="page number">
   </div>
-  <div my-news news="el" ng-repeat="el in results | paginate: page"></div>
+  <div class="col-md-4 text-left">
+    <input type="text" ng-model="pageSize" class="form-control input-lg" placeholder="page size">
+  </div>
+
+  <div my-news news="el" index="{{$index+1}}" ng-repeat="el in results | paginate: page : pageSize"></div>
 </div>
